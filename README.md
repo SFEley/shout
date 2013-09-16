@@ -18,23 +18,25 @@ A number of useful shouters and listeners are provided in separate gems. All of 
 ## Getting Started
 The simplest configuration is a single shouter with a single listener in the same process. Include `gem 'shout'` in your Gemfile, intone the customary `bundle install` from the command line, and then greet the world:
 
-    require 'bundler/setup'
-    require 'shout'
-    
-	# Built-in listener that outputs in logfile format
-    Shout.listener :text, :to => STDOUT 
-    
-    class Greeter
-      include Shout
-      
-      def greet
-        shout 'Hello, world!'
-      end
-    end
-    
-    g = Greeter.new
-    g.greet
-    
+```ruby
+require 'bundler/setup'
+require 'shout'
+
+# Built-in listener that outputs in logfile format
+Shout.listener :text, :to => STDOUT 
+
+class Greeter
+  include Shout
+
+  def greet
+    shout 'Hello, world!'
+  end
+end
+
+g = Greeter.new
+g.greet
+```
+ 
 If you saved that snippet to a file named **hello.rb** and ran it, you would see something like the following: 
 
     2013-09-15 18:31:45 (hello/Greeter) INFO : Hello, world!
@@ -106,9 +108,6 @@ The following *type groups* are also recognized when setting up a listener:
 * **:all** - Includes all user-facing types: **:fatal**, **:error**, **:warn**, **:info** and **:debug**. Does *not* include the **:meta** type.
 
 Creating new event types and informing listeners about them is a feature that may happen in the future if there's enough interest. 
-
-
-
 
 
 
