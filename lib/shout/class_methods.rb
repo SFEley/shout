@@ -9,5 +9,6 @@ module Shout
     def shouter
       @shouter ||= Shouter.new :component => self.name
     end
+
   end
 end

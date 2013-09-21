@@ -11,4 +11,6 @@ describe Shout::Shouter do
   it "defaults the component name to blank" do
     expect(shouter.component).to eq ''
   end
+
+
 end

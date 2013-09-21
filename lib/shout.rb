@@ -9,6 +9,17 @@ module Shout
       @service ||= File.basename($PROGRAM_NAME.to_s)
     end
 
+    # Loads and initializes a new listener object and adds it to the
+    # registry of listeners. A 'shout/listeners/[name].rb' file must be
+    # findable somewhere in the load path.
+    def listener(name)
+      require File.join('shout', 'listeners', name.to_s)
+      klass = Listeners.const_get(name.capitalize)
+      klass.new
+
+    end
+
+
   end
 
 protected

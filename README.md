@@ -41,7 +41,7 @@ If you saved that snippet to a file named **hello.rb** and ran it, you would see
 
     2013-09-15 18:31:45 (hello/Greeter) INFO : Hello, world!
     
-By itself this isn't very fascinating (there are easier ways to write to standard output) but when you consider what the code is doing behind the scenes, you may start to realize just how flexible this is:
+By itself this isn't amazing (there are easier ways to log to standard output) but here's what the code is doing behind the scenes:
 
 1. The `require 'shout'` sets up the namespace and a smallish module for basic configuration and event sending.  Listeners and routers are not loaded until they are asked for.
 

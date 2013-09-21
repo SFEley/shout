@@ -4,6 +4,7 @@
 # loaded once.
 
 require 'shout'
+$:.unshift File.join(File.dirname(__FILE__), 'support')
 
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
