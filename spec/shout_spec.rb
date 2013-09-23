@@ -12,8 +12,6 @@ describe Shout do
   end
 
   describe "listener spawning" do
-    let(:dummy) {double('Example Listener')}
-
     it "requires the named listener file" do
       expect(Shout).to receive(:require).with('shout/listeners/dummy').and_call_original
       Shout.listener :dummy
@@ -23,6 +21,15 @@ describe Shout do
       expect(Shout.listener :dummy).to be_a(Shout::Listeners::Dummy)
     end
 
+    it "adds the listener to a registry" do
+      listener = Shout.listener :dummy
+      expect(Shout.listeners).to include(listener)
+    end
+
+    it "passes arguments to the listener" do
+      listener = Shout.listener :dummy, :foo => 'Bar!'
+      expect(listener.foo).to eq 'Bar!'
+    end
   end
 
   context "as an included module" do
